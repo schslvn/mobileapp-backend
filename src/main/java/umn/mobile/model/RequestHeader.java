@@ -17,7 +17,6 @@ import java.time.LocalDate;
 @Builder
 public class RequestHeader {
     @Id
-    @GeneratedValue
     @Column(name = "request_header_id", nullable = false, updatable = false)
     private Long request_header_id;
 
@@ -26,6 +25,9 @@ public class RequestHeader {
 
     @Column(name = "requested_by", columnDefinition = "VARCHAR(50)")
     private String requested_by;
+
+    @Column(name = "status", columnDefinition = "VARCHAR(50)")
+    private String status;
 
     @Column(name = "trans_date")
     private Date trans_date;

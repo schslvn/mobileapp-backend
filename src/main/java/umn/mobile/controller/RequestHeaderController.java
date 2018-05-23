@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import umn.mobile.model.Request;
+import umn.mobile.model.RequestDetail;
 import umn.mobile.model.RequestHeader;
 import umn.mobile.service.RequestHeaderService;
 
@@ -33,18 +35,18 @@ public class RequestHeaderController {
     @RequestMapping(value = "",
             method = RequestMethod.POST,
             produces = {"application/json"})
-    public ResponseEntity<RequestHeader> createRequestHeader(@RequestBody RequestHeader requestHeader){
-        requestHeaderService.saveRequestHeader(requestHeader);
-        return new ResponseEntity<>(requestHeader, HttpStatus.CREATED);
+    public ResponseEntity<Request> createRequestHeader(@RequestBody Request request){
+        requestHeaderService.saveRequestHeader(request.requestHeader, request.listRequestDetail);
+        return new ResponseEntity<>(request, HttpStatus.CREATED);
     }
 
     //UpdateExistingRequestHeader
     @PutMapping(value = "/{id}", produces = {"application/json"})
-    public ResponseEntity<RequestHeader> updateRequestHeader(@Valid @RequestBody RequestHeader requestHeader,
+    public ResponseEntity<Request> updateRequestHeader(@Valid @RequestBody Request request,
                                                        @PathVariable("id") Long request_header_id){
-        requestHeader.setRequest_header_id(request_header_id);
-        requestHeaderService.saveRequestHeader(requestHeader);
-        return new ResponseEntity<>(requestHeader, HttpStatus.CREATED);
+        request.requestHeader.setRequest_header_id(request_header_id);
+        requestHeaderService.saveRequestHeader(request.requestHeader, request.listRequestDetail);
+        return new ResponseEntity<>(request, HttpStatus.CREATED);
     }
 
     //DeleteRequestHeaderById
