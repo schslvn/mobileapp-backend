@@ -24,4 +24,10 @@ public class MasterItem {
 
     @Column(name = "item_name", columnDefinition = "VARCHAR(100)", nullable = false)
     private String item_name;
+
+    @Column(name = "item_type", columnDefinition = "VARCHAR(50)", nullable = false)
+    private String item_type;
+
+    @Column(name = "uom", columnDefinition = "VARCHAR(10)", nullable = false)
+    private String uom;
 }

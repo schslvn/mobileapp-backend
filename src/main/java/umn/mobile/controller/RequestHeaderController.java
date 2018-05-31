@@ -1,5 +1,6 @@
 package umn.mobile.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import umn.mobile.model.RequestHeader;
 import umn.mobile.service.RequestHeaderService;
 
 import javax.validation.Valid;
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -35,7 +37,10 @@ public class RequestHeaderController {
     @RequestMapping(value = "",
             method = RequestMethod.POST,
             produces = {"application/json"})
-    public ResponseEntity<Request> createRequestHeader(@RequestBody Request request){
+    public ResponseEntity<Request> createRequestHeader(@Valid @RequestBody Request request){
+        request.requestHeader.setRequest_date(Date.valueOf(requestHeaderService.createDate()));
+        request.requestHeader.setCounter(requestHeaderService.getCounter());
+        request.requestHeader.setNumber(requestHeaderService.createNomorDokumen());
         requestHeaderService.saveRequestHeader(request.requestHeader, request.listRequestDetail);
         return new ResponseEntity<>(request, HttpStatus.CREATED);
     }

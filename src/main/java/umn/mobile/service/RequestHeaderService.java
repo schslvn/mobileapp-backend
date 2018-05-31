@@ -7,6 +7,9 @@ import umn.mobile.model.RequestHeader;
 import umn.mobile.repository.RequestDetailRepo;
 import umn.mobile.repository.RequestHeaderRepo;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -15,6 +18,33 @@ public class RequestHeaderService {
     @Autowired private RequestDetailRepo requestDetailRepo;
 
     public RequestHeaderService(){}
+
+    public String createDate(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return LocalDate.now().format(formatter);
+    }
+
+    public Integer getCounter(){
+        Integer i = requestHeaderRepo.getCounter();
+        if(i==null){
+            i=1;
+        }
+        else{
+            i++;
+        }
+
+        return i;
+    }
+
+    public String createNomorDokumen() {
+        return String.format(
+                "PL/%s/%04d",
+                String.format("%02d%02d",
+                        LocalDate.now().getMonthValue(),
+                        LocalDate.now().getYear()%100),
+                getCounter()
+        );
+    }
 
     public String saveRequestHeader(RequestHeader requestHeader, List<RequestDetail> listRequestDetail) {
         try {

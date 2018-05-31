@@ -16,7 +16,7 @@ import java.sql.Date;
 @Builder
 public class RequestDetail {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "request_detail_id", nullable = false, updatable = false)
     private Long request_detail_id;
 
@@ -28,6 +28,9 @@ public class RequestDetail {
 
     @Column(name = "qty")
     private Integer qty;
+
+    @Column(name = "price")
+    private Integer price;
 
     @Column(name = "rd_desc")
     private String rd_desc;
