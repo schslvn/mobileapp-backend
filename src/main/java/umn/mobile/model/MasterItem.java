@@ -30,4 +30,7 @@ public class MasterItem {
 
     @Column(name = "uom", columnDefinition = "VARCHAR(10)", nullable = false)
     private String uom;
+
+    @Column(name = "item_price", nullable = false)
+    private Integer item_price;
 }

@@ -100,4 +100,21 @@ public class RequestHeaderService {
         Set<RequestHeader> listOfRequestHeaderDH = requestHeaderRepo.listOfRequestHeaderForDepartmentHead();
         return listOfRequestHeaderDH;
     }
+
+    //Update
+    public void updateDepartmentHead(String app_status1, Long request_header_id){
+        requestHeaderRepo.updateDepartmentHead(app_status1, request_header_id);
+    }
+
+    public void updatePurchasingManager(String app_status2, Long request_header_id){
+        requestHeaderRepo.updatePurchasingManager(app_status2, request_header_id);
+    }
+
+    public void updateFinancialController(String app_status3, Long request_header_id){
+        requestHeaderRepo.updateFinancialController(app_status3, request_header_id);
+    }
+
+    public void updateGeneralManager(String app_status4, Long request_header_id){
+        requestHeaderRepo.updateGeneralManager(app_status4, request_header_id);
+    }
 }

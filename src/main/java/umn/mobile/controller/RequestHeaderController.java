@@ -86,8 +86,7 @@ public class RequestHeaderController {
     //ShowAllRequestHeaderAndRequestDetail
 
     //CreateNewRequestHeader
-    @RequestMapping(value = "",
-            method = RequestMethod.POST,
+    @PostMapping(value = "",
             produces = {"application/json"})
     public ResponseEntity<Request> createRequestHeader(@Valid @RequestBody Request request){
         request.requestHeader.setRequest_date(Date.valueOf(requestHeaderService.createDate()));
@@ -104,6 +103,34 @@ public class RequestHeaderController {
         request.requestHeader.setRequest_header_id(request_header_id);
         requestHeaderService.saveRequestHeader(request.requestHeader, request.listRequestDetail);
         return new ResponseEntity<>(request, HttpStatus.CREATED);
+    }
+
+    //UpdateForDeptHead
+    @PutMapping(value = "/{id}/dh/{status}", produces = {"application/json"})
+    public void updateRequestHeaderDH(@PathVariable("id") Long request_header_id,
+                                      @PathVariable("status") String app_status1){
+        requestHeaderService.updateDepartmentHead(app_status1, request_header_id);
+    }
+
+    //UpdateForPurchMgr
+    @PutMapping(value = "/{id}/pm/{status}", produces = {"application/json"})
+    public void updateRequestHeaderPM(@PathVariable("id") Long request_header_id,
+                                      @PathVariable("status") String app_status2){
+        requestHeaderService.updatePurchasingManager(app_status2, request_header_id);
+    }
+
+    //UpdateForFinCont
+    @PutMapping(value = "/{id}/fc/{status}", produces = {"application/json"})
+    public void updateRequestHeaderFC(@PathVariable("id") Long request_header_id,
+                                      @PathVariable("status") String app_status3){
+        requestHeaderService.updateFinancialController(app_status3, request_header_id);
+    }
+
+    //UpdateForGenMgr
+    @PutMapping(value = "/{id}/gm/{status}", produces = {"application/json"})
+    public void updateRequestHeader(@PathVariable("id") Long request_header_id,
+                                    @PathVariable("status") String app_status4){
+        requestHeaderService.updateGeneralManager(app_status4, request_header_id);
     }
 
     //DeleteRequestHeaderById
