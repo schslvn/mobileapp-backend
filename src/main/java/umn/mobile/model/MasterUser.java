@@ -22,12 +22,12 @@ public class MasterUser {
     @Column(name = "username", columnDefinition = "VARCHAR(100)", nullable = false)
     private String username;
 
-    @Column(name = "password", columnDefinition = "VARCHAR(50)", nullable = false)
+    @Column(name = "password", columnDefinition = "VARCHAR(30)", nullable = false)
     private String password;
 
-    @Column(name = "fullname", columnDefinition = "VARCHAR(10)", nullable = false)
+    @Column(name = "fullname", columnDefinition = "VARCHAR(100)", nullable = false)
     private String fullname;
 
-    @Column(name = "position", columnDefinition = "VARCHAR(10)", nullable = false)
+    @Column(name = "position", columnDefinition = "VARCHAR(30)", nullable = false)
     private String position;
 }
