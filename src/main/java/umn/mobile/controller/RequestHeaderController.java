@@ -22,6 +22,14 @@ public class RequestHeaderController {
     @Autowired
     private RequestHeaderService requestHeaderService;
 
+    //Show Date in String
+    @GetMapping(value = "/date",
+            produces = {"application/json"})
+    public ResponseEntity<String> getDate(){
+        String date = requestHeaderService.createDate();
+        return new ResponseEntity<>(date,HttpStatus.CREATED);
+    }
+
     //ShowAllRequestHeader
     @GetMapping(value = "", produces = {"application/json"})
     public List<RequestHeader> showAllRequestHeader() {

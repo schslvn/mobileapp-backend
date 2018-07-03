@@ -592,7 +592,6 @@ INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSF015', 'IKAN KERAPU WHOLE', 'FOOD', 'KG', 53000);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSF016', 'IKAN KWE', 'FOOD', 'KG', 55000);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSF017', 'IKAN MAS', 'FOOD', 'KG', 36948.72);
-//================================================================
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSF019', 'IKAN SALMON H/OF FRZ NORWAY', 'FOOD', 'KG', 170000);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSF021', 'KEPITING  DAGING / CRAB MEAT', 'FOOD', 'KG', 155000);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSF022', 'KIBUN SEASTIK / CRAB STIK 500GR/PACK', 'FOOD', 'PACK', 110000);
@@ -610,7 +609,6 @@ INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK005', 'KIKOMAN SOY SC.1.6LT', 'FOOD', 'BTL', 86200);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK007', 'MUSHROOM SOYA 600ML', 'FOOD', 'BTL', 21000);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK008', 'OYSTER/TIRAM SC.2.28KG', 'FOOD', 'CAN', 84645);
-INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK008', 'OYSTER/TIRAM SC.2.28KG', 'FOOD', 'CAN', 95000);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK009', 'RED CURRY PASTE 50GR/PACK', 'FOOD', 'PC', 6175.01);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK010', 'SAMBAL PAUCUNG 400 GR/BTL', 'FOOD', 'BTL', 47083.33);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK012', 'SAMBAL THAILAND 340ML FINNA', 'FOOD', 'BTL', 12920);
@@ -627,11 +625,9 @@ INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK029', 'TOM YAM PES SC.1KG', 'FOOD', 'PACK', 76949.95);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK030', 'TOMATO PASTE HEINZ 3.15KG', 'FOOD', 'CAN', 135000);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK033', 'TOUKATSU SAUCE BULDOG 1.8LT', 'FOOD', 'BTL', 137500);
-INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK036', 'GREEN CURRY PASTE 50GR/PC', 'FOOD', 'PC', 6175.01);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK036', 'GREEN CURRY PASTE 50GR/PC', 'FOOD', 'PC', 13010);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSK037', 'TOM YAM 1.5KG/PACK', 'FOOD', 'PACK', 212111.63);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSS001', 'GULA MERAH/KG', 'FOOD', 'KG', 11000);
-INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSS001', 'GULA MERAH/KG', 'FOOD', 'KG', 15000);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSS002', 'GULA MERAH SACHET 250X8GR / PACK', 'FOOD', 'SCT', 230);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSS003', 'GULA PUTIH', 'FOOD', 'KG', 13500);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSS004', 'GULA PUTIH 250 SACHET', 'FOOD', 'PC', 180);
@@ -640,9 +636,7 @@ INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSS008', 'SIMPLE SYRUP/GULA CAIR 6 KG', 'FOOD', 'KG', 12833.33);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSS009', 'SYRUP MARJAN 650ML', 'FOOD', 'BTL', 18600);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSS010', 'TROPICANA SLIM 100X2.5GR', 'FOOD', 'PC', 795);
-INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSS012', 'GULA PUTIH SCT NO LOGO 100X8GR', 'FOOD', 'PC', 194.5);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSS012', 'GULA PUTIH SCT NO LOGO 100X8GR', 'FOOD', 'PC', 189);
-INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSS013', 'MONIN WILD MINT SYRUP 625ML/BTL', 'FOOD', 'BTL', 130000);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FSS013', 'MONIN WILD MINT SYRUP 625ML/BTL', 'FOOD', 'BTL', 130000);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FTC002', 'COFFEE EXCELCO PREMIUM BLEND 1KG (4X250GR)', 'FOOD', 'KG', 140000);
 INSERT INTO master_item(item_code, item_name, item_type, uom, item_price) VALUES ('FTC003', 'COFFEE EXCELCO PREMIUM POWDER 1KG (4X250GR)', 'FOOD', 'KG', 140000);
