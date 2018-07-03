@@ -76,6 +76,11 @@ public class RequestHeaderService {
         requestHeaderRepo.delete(request_header_id);
     }
 
+    public Set<RequestHeader> getAllHeaderDetail(){
+        Set<RequestHeader> listOfHeaderDetail = requestHeaderRepo.listOfHeaderDetail();
+        return listOfHeaderDetail;
+    }
+
     public Set<RequestHeader> getAllRequestHeaderByPendingStatus(){
         Set<RequestHeader> listOfRequestHeader = requestHeaderRepo.listOfAllRequestHeaderByPendingStatus();
         return listOfRequestHeader;

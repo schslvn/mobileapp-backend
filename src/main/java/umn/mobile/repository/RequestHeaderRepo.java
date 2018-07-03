@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import umn.mobile.model.Request;
 import umn.mobile.model.RequestHeader;
 
 import javax.transaction.Transactional;
@@ -47,4 +48,7 @@ public interface RequestHeaderRepo extends JpaRepository<RequestHeader, Long> {
     @Modifying
     @Query(value = "UPDATE RequestHeader rh SET rh.app_status4 = :app_status4 WHERE rh.request_header_id = :request_header_id")
     public void updateGeneralManager(@Param("app_status4") String app_status4, @Param("request_header_id") Long request_header_id);
+
+    @Query(value = "SELECT rh, rd FROM RequestHeader rh, RequestDetail rd WHERE rh.request_header_id = rd.request_header_id")
+    Set<RequestHeader> listOfHeaderDetail();
 }
