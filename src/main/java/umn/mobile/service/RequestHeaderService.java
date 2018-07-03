@@ -38,7 +38,7 @@ public class RequestHeaderService {
 
     public String createNomorDokumen() {
         return String.format(
-                "PL/%s/%04d",
+                "PR/%s/%04d",
                 String.format("%02d%02d",
                         LocalDate.now().getMonthValue(),
                         LocalDate.now().getYear()%100),
