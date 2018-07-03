@@ -1,6 +1,13 @@
 -- noinspection SqlDialectInspectionForFile
 -- noinspection SqlNoDataSourceInspectionForFile
 
+INSERT INTO user(username, password, fullname, position)
+VALUES  ('silvinscholastica', 'employee000', 'Silvin', 'Employee'),
+        ('adjiejiewhy', 'depthead123', 'Adjie Wahyu', 'Department Head'),
+        ('heri_soeparno', 'purchmgr456', 'Heri Soeparno', 'Purchasing Manager'),
+        ('owen.yuwono', 'finance789', 'Michael Oswin Yuwono', 'Financial Controller'),
+        ('moccapaw', 'jiemdong', 'Mocca Von Paw', 'General Manager')
+
 INSERT INTO master_item(item_code, item_name, item_type, uom)
 VALUES  ('BB001', 'Bir Bintang Barel 30L', 'BEVERAGE', 'LTR'),
         ('BB002', 'Bir Bintang Botol 620ML', 'BEVERAGE', 'BTL'),
