@@ -11,6 +11,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class RequestHeaderService {
@@ -46,17 +47,20 @@ public class RequestHeaderService {
         );
     }
 
-    public String saveRequestHeader(RequestHeader requestHeader, List<RequestDetail> listRequestDetail) {
+    public String saveRequestHeader(RequestHeader requestHeader, List<RequestDetail> listOfRequestDetail){
         try {
-            requestHeaderRepo.save(requestHeader);
-            requestDetailRepo.save(listRequestDetail);
+            RequestHeader _requestHeader = requestHeaderRepo.save(requestHeader);
+            for (RequestDetail cod: listOfRequestDetail) {
+                cod.setRequest_header_id(_requestHeader.getRequest_header_id());
+            }
+            requestDetailRepo.save(listOfRequestDetail);
         }
         catch (Exception ex) {
             ex.printStackTrace();
             return "Save Failed!" + ex.getMessage();
         }
 
-        return "Save Success!";
+        return "Save Successful!";
     }
 
     public RequestHeader getRequestHeaderById(Long request_header_id){
@@ -70,5 +74,30 @@ public class RequestHeaderService {
 
     public void deleteRequestHeader(Long request_header_id) {
         requestHeaderRepo.delete(request_header_id);
+    }
+
+    public Set<RequestHeader> getAllRequestHeaderByPendingStatus(){
+        Set<RequestHeader> listOfRequestHeader = requestHeaderRepo.listOfAllRequestHeaderByPendingStatus();
+        return listOfRequestHeader;
+    }
+
+    public Set<RequestHeader> getAllRequestHeaderForGeneralManager(){
+        Set<RequestHeader> listOfRequestHeaderGM = requestHeaderRepo.listOfRequestHeaderForGeneralManager();
+        return listOfRequestHeaderGM;
+    }
+
+    public Set<RequestHeader> getAllRequestHeaderForFinancialController(){
+        Set<RequestHeader> listOfRequestHeaderFC = requestHeaderRepo.listOfRequestHeaderForFinancialController();
+        return listOfRequestHeaderFC;
+    }
+
+    public Set<RequestHeader> getAllRequestHeaderForPurchasingManager(){
+        Set<RequestHeader> listOfRequestHeaderPM = requestHeaderRepo.listOfRequestHeaderForPurchasingManager();
+        return listOfRequestHeaderPM;
+    }
+
+    public Set<RequestHeader> getAllRequestHeaderForDepartmentHead(){
+        Set<RequestHeader> listOfRequestHeaderDH = requestHeaderRepo.listOfRequestHeaderForDepartmentHead();
+        return listOfRequestHeaderDH;
     }
 }

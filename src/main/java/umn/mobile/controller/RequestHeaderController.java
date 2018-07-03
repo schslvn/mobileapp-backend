@@ -1,6 +1,7 @@
 package umn.mobile.controller;
 
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import umn.mobile.service.RequestHeaderService;
 import javax.validation.Valid;
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping(path = "/api/requestheader")
@@ -32,6 +34,48 @@ public class RequestHeaderController {
         RequestHeader requestHeaderById = requestHeaderService.getRequestHeaderById(request_header_id);
         return requestHeaderById;
     }
+
+    //ShowAllRequestHeaderByPendingStatus
+    @GetMapping(value = "/status/all",
+            produces = {"application/json"})
+    public Set<RequestHeader> getAllRequestHeaderByPendingStatus(){
+        Set<RequestHeader> listOfRequestHeader = requestHeaderService.getAllRequestHeaderByPendingStatus();
+        return listOfRequestHeader;
+    }
+
+    //ShowAllRequestHeaderForGeneralManager
+    @GetMapping(value = "/status/gm",
+            produces = {"application/json"})
+    public Set<RequestHeader> getAllRequestHeaderForGeneralManager(){
+        Set<RequestHeader> listOfRequestHeader = requestHeaderService.getAllRequestHeaderForGeneralManager();
+        return listOfRequestHeader;
+    }
+
+    //ShowAllRequestHeaderForFinancialController
+    @GetMapping(value = "/status/fc",
+            produces = {"application/json"})
+    public Set<RequestHeader> getAllRequestHeaderForFinancialController(){
+        Set<RequestHeader> listOfRequestHeader = requestHeaderService.getAllRequestHeaderForFinancialController();
+        return listOfRequestHeader;
+    }
+
+    //ShowAllRequestHeaderForPurchasingManager
+    @GetMapping(value = "/status/pm",
+            produces = {"application/json"})
+    public Set<RequestHeader> getAllRequestHeaderForPurchasingManager(){
+        Set<RequestHeader> listOfRequestHeader = requestHeaderService.getAllRequestHeaderForPurchasingManager();
+        return listOfRequestHeader;
+    }
+
+    //ShowAllRequestHeaderForDepartmentHead
+    @GetMapping(value = "/status/dh",
+            produces = {"application/json"})
+    public Set<RequestHeader> getAllRequestHeaderForDepartmentHead(){
+        Set<RequestHeader> listOfRequestHeader = requestHeaderService.getAllRequestHeaderForDepartmentHead();
+        return listOfRequestHeader;
+    }
+
+    //ShowAllRequestHeaderAndRequestDetail
 
     //CreateNewRequestHeader
     @RequestMapping(value = "",
