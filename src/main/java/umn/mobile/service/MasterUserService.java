@@ -12,14 +12,21 @@ public class MasterUserService {
     @Autowired
     private MasterUserRepo masterUserRepo;
 
-    public MasterUserService(){}
+    public MasterUserService() {
+    }
 
-    public MasterUser getMasterUserById(Long user_id){
+    public MasterUser getMasterUserById(Long user_id) {
         return masterUserRepo.findOne(user_id);
     }
 
-    public List<MasterUser> getAllMasterUser(){
+    public List<MasterUser> getAllMasterUser() {
         List listOfMasterUser = masterUserRepo.findAll();
         return listOfMasterUser;
+    }
+
+    public Boolean userVerification(String username, String password) {
+        if (masterUserRepo.numberOfMasterUsers(username, password) > 0)
+            return true;
+        else return false;
     }
 }

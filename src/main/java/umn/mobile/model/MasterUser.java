@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "master_user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,6 +28,6 @@ public class MasterUser {
     @Column(name = "fullname", columnDefinition = "VARCHAR(100)", nullable = false)
     private String fullname;
 
-    @Column(name = "position", columnDefinition = "VARCHAR(30)", nullable = false)
-    private String position;
+    @Column(name = "jobposition", columnDefinition = "VARCHAR(30)", nullable = false)
+    private String jobposition;
 }
