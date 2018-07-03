@@ -29,9 +29,6 @@ public class RequestDetail {
     @Column(name = "qty")
     private Integer qty;
 
-    @Column(name = "price")
-    private Integer price;
-
     @Column(name = "rd_desc")
     private String rd_desc;
 }
