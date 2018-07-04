@@ -10,8 +10,7 @@ import umn.mobile.repository.RequestHeaderRepo;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class RequestHeaderService {
@@ -76,9 +75,16 @@ public class RequestHeaderService {
         requestHeaderRepo.delete(request_header_id);
     }
 
-    public Set<RequestHeader> getAllHeaderDetail(){
-        Set<RequestHeader> listOfHeaderDetail = requestHeaderRepo.listOfHeaderDetail();
-        return listOfHeaderDetail;
+    public Set<RequestHeader> getAllRequestDetail(){
+        Set<RequestHeader> listOfRequestDetail = requestHeaderRepo.listOfRequestDetail();
+        return listOfRequestDetail;
+    }
+
+    public Map<String, Collection> getAll(){
+        Map<String, Collection> map = new HashMap<>();
+        map.put("RequestHeader",getAllRequestHeader());
+        map.put("RequestDetail",getAllRequestDetail());
+        return map;
     }
 
     public Set<RequestHeader> getAllRequestHeaderByPendingStatus(){

@@ -10,7 +10,9 @@ import umn.mobile.service.RequestHeaderService;
 
 import javax.validation.Valid;
 import java.sql.Date;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @RestController
@@ -83,9 +85,8 @@ public class RequestHeaderController {
     //ShowAllRequestHeaderAndRequestDetail
     @GetMapping(value = "/all",
             produces = {"application/json"})
-    public Set<RequestHeader> getAllHeaderDetail(){
-        Set<RequestHeader> listOfHeaderDetail = requestHeaderService.getAllHeaderDetail();
-        return listOfHeaderDetail;
+    public Map<String,Collection> getAllRequestHeaderDetail() {
+        return this.requestHeaderService.getAll();
     }
 
     //CreateNewRequestHeader
