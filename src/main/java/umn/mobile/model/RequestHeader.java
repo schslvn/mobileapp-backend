@@ -42,8 +42,8 @@ public class RequestHeader {
 //    @Column(name = "app_date1", nullable = false)
 //    private Date app_date1;
 
-    @Column(name = "app_desc1")
-    private String app_desc1;
+//    @Column(name = "app_desc1")
+//    private String app_desc1;
 
     @Column(name = "app_by1", columnDefinition = "VARCHAR(50)")
     private String app_by1;
@@ -54,8 +54,8 @@ public class RequestHeader {
 //    @Column(name = "app_date2", nullable = false)
 //    private Date app_date2;
 
-    @Column(name = "app_desc2")
-    private String app_desc2;
+//    @Column(name = "app_desc2")
+//    private String app_desc2;
 
     @Column(name = "app_by2", columnDefinition = "VARCHAR(50)")
     private String app_by2;
@@ -66,8 +66,8 @@ public class RequestHeader {
 //    @Column(name = "app_date3", nullable = false)
 //    private Date app_date3;
 
-    @Column(name = "app_desc3")
-    private String app_desc3;
+//    @Column(name = "app_desc3")
+//    private String app_desc3;
 
     @Column(name = "app_by3", columnDefinition = "VARCHAR(50)")
     private String app_by3;
@@ -78,8 +78,8 @@ public class RequestHeader {
 //    @Column(name = "app_date4", nullable = false)
 //    private Date app_date4;
 
-    @Column(name = "app_desc4")
-    private String app_desc4;
+//    @Column(name = "app_desc4")
+//    private String app_desc4;
 
     @Column(name = "app_by4", columnDefinition = "VARCHAR(50)")
     private String app_by4;
