@@ -99,6 +99,10 @@ public class RequestHeaderController {
         request.requestHeader.setRequest_date(Date.valueOf(requestHeaderService.createDate()));
         request.requestHeader.setCounter(requestHeaderService.getCounter());
         request.requestHeader.setNumber(requestHeaderService.createNomorDokumen());
+        request.requestHeader.setApp_status1("PENDING");
+        request.requestHeader.setApp_status2("PENDING");
+        request.requestHeader.setApp_status3("PENDING");
+        request.requestHeader.setApp_status4("PENDING");
         requestHeaderService.saveRequestHeader(request.requestHeader, request.listRequestDetail);
         return new ResponseEntity<>(request, HttpStatus.CREATED);
     }
