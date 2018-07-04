@@ -7,6 +7,7 @@ import umn.mobile.model.MasterUser;
 import umn.mobile.service.MasterUserService;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping(path = "/api/masteruser")
@@ -27,14 +28,13 @@ public class MasterUserController {
         return masterUserById;
     }
 
-    //Boolean Check
+    //Login Check
     @RequestMapping(value = "/{username}/{password}",
             method = RequestMethod.GET,
             produces = {"application/json"})
-    public Boolean loginVerification(@ApiParam(value = "The username and password of Master User", required = true)
-                                                        @PathVariable("username") String username,
-                                                        @PathVariable("password") String password){
-        Boolean verified = masterUserService.userVerification(username,password);
+    public Set<MasterUser> loginVerification(@PathVariable("username") String username,
+                                             @PathVariable("password") String password){
+        Set<MasterUser> verified = masterUserService.userVerification(username,password);
         return verified;
     }
 }

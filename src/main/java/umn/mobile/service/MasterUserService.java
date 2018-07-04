@@ -6,6 +6,7 @@ import umn.mobile.model.MasterUser;
 import umn.mobile.repository.MasterUserRepo;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class MasterUserService {
@@ -24,9 +25,8 @@ public class MasterUserService {
         return listOfMasterUser;
     }
 
-    public Boolean userVerification(String username, String password) {
-        if (masterUserRepo.numberOfMasterUsers(username, password) > 0)
-            return true;
-        else return false;
+    public Set<MasterUser> userVerification(String username, String password) {
+        Set<MasterUser> listOfMasterUsers = masterUserRepo.listOfMasterUsers(username, password);
+        return listOfMasterUsers;
     }
 }
