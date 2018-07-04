@@ -46,13 +46,13 @@ public class RequestHeaderService {
         );
     }
 
-    public String saveRequestHeader(RequestHeader requestHeader, List<RequestDetail> listOfRequestDetail){
+    public String saveRequestHeader(RequestHeader requestHeader){
         try {
             RequestHeader _requestHeader = requestHeaderRepo.save(requestHeader);
-            for (RequestDetail cod: listOfRequestDetail) {
-                cod.setRequest_header_id(_requestHeader.getRequest_header_id());
-            }
-            requestDetailRepo.save(listOfRequestDetail);
+//            for (RequestDetail cod: _requestHeader.getDetails()) {
+//                cod.setRequest_header_id(_requestHeader.getRequest_header_id());
+//            }
+//            requestDetailRepo.save(listOfRequestDetail);
         }
         catch (Exception ex) {
             ex.printStackTrace();
