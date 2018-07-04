@@ -36,8 +36,8 @@ public class MasterItemController {
     //SearchMasterItem
     @GetMapping(value = "/search/{item_name}",
             produces = {"application/json"})
-    public Set<MasterItem> searchMasterItem(@Param("item_name") String item_name){
-        Set<MasterItem> listOfMasterItem = masterItemService.searchMasterItem(item_name);
+    public List<MasterItem> searchMasterItem(@PathVariable("item_name") String item_name){
+        List<MasterItem> listOfMasterItem = masterItemService.searchMasterItem(item_name);
         return listOfMasterItem;
     }
 

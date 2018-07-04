@@ -29,8 +29,8 @@ public class MasterItemService {
         return listOfMasterItem;
     }
 
-    public Set<MasterItem> searchMasterItem(String item_name){
-        Set<MasterItem> listOfMasterItem = masterItemRepo.searchMasterItem(item_name);
+    public List<MasterItem> searchMasterItem(String item_name){
+        List<MasterItem> listOfMasterItem = masterItemRepo.searchMasterItem(item_name);
         return listOfMasterItem;
     }
 
