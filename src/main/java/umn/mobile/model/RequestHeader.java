@@ -24,13 +24,13 @@ public class RequestHeader {
     @Column(name = "requested_by", columnDefinition = "VARCHAR(50)", nullable = false)
     private String requested_by;
 
-    @Column(name = "request_date", nullable = false, updatable = false)
+    @Column(name = "request_date", updatable = false)
     private Date request_date;
 
-    @Column(name = "number", nullable = false, updatable = false)
+    @Column(name = "number", updatable = false)
     private String number;
 
-    @Column(name = "counter", nullable = false)
+    @Column(name = "counter")
     private Integer counter;
 
     @Column(name = "type", columnDefinition = "VARCHAR(20)", nullable = false)
@@ -45,7 +45,7 @@ public class RequestHeader {
     @Column(name = "app_desc1")
     private String app_desc1;
 
-    @Column(name = "app_by1", columnDefinition = "VARCHAR(50)", nullable = false)
+    @Column(name = "app_by1", columnDefinition = "VARCHAR(50)")
     private String app_by1;
 
     @Column(name = "app_status2", columnDefinition = "VARCHAR(10)", nullable = false)
@@ -57,7 +57,7 @@ public class RequestHeader {
     @Column(name = "app_desc2")
     private String app_desc2;
 
-    @Column(name = "app_by2", columnDefinition = "VARCHAR(50)", nullable = false)
+    @Column(name = "app_by2", columnDefinition = "VARCHAR(50)")
     private String app_by2;
 
     @Column(name = "app_status3", columnDefinition = "VARCHAR(10)", nullable = false)
@@ -69,7 +69,7 @@ public class RequestHeader {
     @Column(name = "app_desc3")
     private String app_desc3;
 
-    @Column(name = "app_by3", columnDefinition = "VARCHAR(50)", nullable = false)
+    @Column(name = "app_by3", columnDefinition = "VARCHAR(50)")
     private String app_by3;
 
     @Column(name = "app_status4", columnDefinition = "VARCHAR(10)", nullable = false)
@@ -81,7 +81,7 @@ public class RequestHeader {
     @Column(name = "app_desc4")
     private String app_desc4;
 
-    @Column(name = "app_by4", columnDefinition = "VARCHAR(50)", nullable = false)
+    @Column(name = "app_by4", columnDefinition = "VARCHAR(50)")
     private String app_by4;
 
     @Column(name = "grand_total", nullable = false)
