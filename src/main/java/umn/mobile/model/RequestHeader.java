@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "request_header")
@@ -97,4 +98,7 @@ public class RequestHeader {
 
     @Column(name = "grand_total", nullable = false)
     private Integer grand_total;
+
+    @Transient
+    private Set<RequestDetail> details;
 }

@@ -50,4 +50,7 @@ public interface RequestHeaderRepo extends JpaRepository<RequestHeader, Long> {
 
     @Query(value = "SELECT rh, rd FROM RequestHeader rh, RequestDetail rd WHERE rh.request_header_id = rd.request_header_id")
     Set<RequestHeader> listOfHeaderDetail();
+
+    @Query(value = "SELECT rh FROM RequestHeader rh")
+    Set<RequestHeader> listOfRequestHeader();
 }

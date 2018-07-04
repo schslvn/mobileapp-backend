@@ -121,4 +121,12 @@ public class RequestHeaderService {
     public void updateGeneralManager(String app_status4, Long request_header_id){
         requestHeaderRepo.updateGeneralManager(app_status4, request_header_id);
     }
+
+    public Set<RequestHeader> getRequestHeaderAndDetail(){
+        Set<RequestHeader> header = requestHeaderRepo.listOfRequestHeader();
+        for(RequestHeader h:header){
+            h.setDetails(requestDetailRepo.listOfRequestDetail(h.getRequest_header_id()));
+        }
+        return header;
+    }
 }
