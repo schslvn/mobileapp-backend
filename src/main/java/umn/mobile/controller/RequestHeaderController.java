@@ -85,8 +85,9 @@ public class RequestHeaderController {
     //ShowAllRequestHeaderAndRequestDetail
     @GetMapping(value = "/all",
             produces = {"application/json"})
-    public Map<String,Collection> getAllRequestHeaderDetail() {
-        return this.requestHeaderService.getAll();
+    public Set<RequestHeader> getAllHeaderDetail(){
+        Set<RequestHeader> listOfHeaderDetail = requestHeaderService.getAllHeaderDetail();
+        return listOfHeaderDetail;
     }
 
     //CreateNewRequestHeader

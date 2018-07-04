@@ -48,6 +48,6 @@ public interface RequestHeaderRepo extends JpaRepository<RequestHeader, Long> {
     @Query(value = "UPDATE RequestHeader rh SET rh.app_status4 = :app_status4 WHERE rh.request_header_id = :request_header_id")
     public void updateGeneralManager(@Param("app_status4") String app_status4, @Param("request_header_id") Long request_header_id);
 
-    @Query(value = "SELECT rd FROM RequestHeader rh, RequestDetail rd WHERE rh.request_header_id = rd.request_header_id")
-    Set<RequestHeader> listOfRequestDetail();
+    @Query(value = "SELECT rh, rd FROM RequestHeader rh, RequestDetail rd WHERE rh.request_header_id = rd.request_header_id")
+    Set<RequestHeader> listOfHeaderDetail();
 }

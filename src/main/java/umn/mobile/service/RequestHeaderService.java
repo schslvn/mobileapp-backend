@@ -75,16 +75,9 @@ public class RequestHeaderService {
         requestHeaderRepo.delete(request_header_id);
     }
 
-    public Set<RequestHeader> getAllRequestDetail(){
-        Set<RequestHeader> listOfRequestDetail = requestHeaderRepo.listOfRequestDetail();
-        return listOfRequestDetail;
-    }
-
-    public Map<String, Collection> getAll(){
-        Map<String, Collection> map = new HashMap<>();
-        map.put("RequestHeader",getAllRequestHeader());
-        map.put("RequestDetail",getAllRequestDetail());
-        return map;
+    public Set<RequestHeader> getAllHeaderDetail(){
+        Set<RequestHeader> listOfHeaderDetail = requestHeaderRepo.listOfHeaderDetail();
+        return listOfHeaderDetail;
     }
 
     public Set<RequestHeader> getAllRequestHeaderByPendingStatus(){
