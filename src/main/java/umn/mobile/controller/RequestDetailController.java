@@ -38,7 +38,7 @@ public class RequestDetailController {
     }
 
     //CreateNewRequestDetail
-    @RequestMapping(value = "",
+    @RequestMapping(value = "/detail",
             method = RequestMethod.POST,
             produces = {"application/json"})
     public ResponseEntity<RequestDetail> createRequestDetail(@RequestBody RequestDetail requestDetail){

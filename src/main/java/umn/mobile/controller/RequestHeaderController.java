@@ -86,7 +86,7 @@ public class RequestHeaderController {
     }
 
     //CreateNewRequestHeader
-    @PostMapping(value = "",
+    @PostMapping(value = "/header",
             produces = {"application/json"})
     public Long createRequestHeader(@Valid @RequestBody RequestHeader request){
         request.setRequest_date(requestHeaderService.createDate());
