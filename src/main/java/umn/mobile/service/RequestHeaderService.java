@@ -49,10 +49,13 @@ public class RequestHeaderService {
     public String saveRequestHeader(RequestHeader requestHeader){
         try {
             RequestHeader _requestHeader = requestHeaderRepo.save(requestHeader);
-            for (RequestDetail cod: _requestHeader.getDetails()) {
+            System.out.println(requestHeader.getDetails());
+            Set<RequestDetail> details = new HashSet<>();
+            for (RequestDetail cod: requestHeader.getDetails()) {
                 cod.setRequest_header_id(_requestHeader.getRequest_header_id());
+                details.add(cod);
             }
-            requestDetailRepo.save(_requestHeader.getDetails());
+            requestDetailRepo.save(details);
         }
         catch (Exception ex) {
             ex.printStackTrace();
