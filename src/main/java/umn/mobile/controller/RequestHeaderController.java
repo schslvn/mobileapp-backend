@@ -53,6 +53,14 @@ public class RequestHeaderController {
         return listOfRequestHeader;
     }
 
+    //ShowAllRequestHeaderByAcceptedStatus
+    @GetMapping(value = "/status/allacc",
+            produces = {"application/json"})
+    public Set<RequestHeader> getAllRequestHeaderByAcceptedStatus(){
+        Set<RequestHeader> listOfRequestHeader = requestHeaderService.getAllRequestHeaderByAcceptedStatus();
+        return listOfRequestHeader;
+    }
+
     //ShowAllRequestHeaderForGeneralManager
     @GetMapping(value = "/status/gm",
             produces = {"application/json"})

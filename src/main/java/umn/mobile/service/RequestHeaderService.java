@@ -73,6 +73,11 @@ public class RequestHeaderService {
         return listOfRequestHeader;
     }
 
+    public Set<RequestHeader> getAllRequestHeaderByAcceptedStatus(){
+        Set<RequestHeader> listOfRequestHeader = requestHeaderRepo.listOfAllRequestHeaderByAcceptedStatus();
+        return listOfRequestHeader;
+    }
+
     public Set<RequestHeader> getAllRequestHeaderForGeneralManager(){
         Set<RequestHeader> listOfRequestHeaderGM = requestHeaderRepo.listOfRequestHeaderForGeneralManager();
         return listOfRequestHeaderGM;

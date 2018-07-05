@@ -14,6 +14,9 @@ public interface RequestHeaderRepo extends JpaRepository<RequestHeader, Long> {
     @Query(value = "SELECT * FROM request_header WHERE app_status1 = 'PENDING' OR app_status2 ='PENDING' OR app_status3 = 'PENDING' OR app_status4 = 'PENDING'", nativeQuery = true)
     Set<RequestHeader> listOfAllRequestHeaderByPendingStatus();
 
+    @Query(value = "SELECT * FROM request_header WHERE app_status1 = 'ACCEPTED' AND app_status2 ='ACCEPTED' AND app_status3 = 'ACCEPTED' AND app_status4 = 'ACCEPTED'", nativeQuery = true)
+    Set<RequestHeader> listOfAllRequestHeaderByAcceptedStatus();
+
     @Query(value = "SELECT * FROM request_header WHERE app_status1 = 'ACCEPTED' AND app_status2 ='ACCEPTED' AND app_status3 = 'ACCEPTED' AND app_status4 = 'PENDING'", nativeQuery = true)
     Set<RequestHeader> listOfRequestHeaderForGeneralManager();
 
