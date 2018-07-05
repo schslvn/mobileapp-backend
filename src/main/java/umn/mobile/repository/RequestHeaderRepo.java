@@ -11,22 +11,22 @@ import javax.transaction.Transactional;
 import java.util.Set;
 
 public interface RequestHeaderRepo extends JpaRepository<RequestHeader, Long> {
-    @Query(value = "SELECT * FROM request_header WHERE app_status1 = 'PENDING' OR app_status2 ='PENDING' OR app_status3 = 'PENDING' OR app_status4 = 'PENDING'", nativeQuery = true)
+    @Query(value = "SELECT * FROM request_header WHERE app_by1 = 'PENDING' OR app_by2 ='PENDING' OR app_by3 = 'PENDING' OR app_by4 = 'PENDING'", nativeQuery = true)
     Set<RequestHeader> listOfAllRequestHeaderByPendingStatus();
 
-    @Query(value = "SELECT * FROM request_header WHERE app_status1 = 'ACCEPTED' AND app_status2 ='ACCEPTED' AND app_status3 = 'ACCEPTED' AND app_status4 = 'ACCEPTED'", nativeQuery = true)
+    @Query(value = "SELECT * FROM request_header WHERE app_by1 = 'ACCEPTED' AND app_by2 ='ACCEPTED' AND app_by3 = 'ACCEPTED' AND app_by4 = 'ACCEPTED'", nativeQuery = true)
     Set<RequestHeader> listOfAllRequestHeaderByAcceptedStatus();
 
-    @Query(value = "SELECT * FROM request_header WHERE app_status1 = 'ACCEPTED' AND app_status2 ='ACCEPTED' AND app_status3 = 'ACCEPTED' AND app_status4 = 'PENDING'", nativeQuery = true)
+    @Query(value = "SELECT * FROM request_header WHERE app_by1 = 'ACCEPTED' AND app_by2 ='ACCEPTED' AND app_by3 = 'ACCEPTED' AND app_by4 = 'PENDING'", nativeQuery = true)
     Set<RequestHeader> listOfRequestHeaderForGeneralManager();
 
-    @Query(value = "SELECT * FROM request_header WHERE app_status1 = 'ACCEPTED' AND app_status2 ='ACCEPTED' AND app_status3 = 'PENDING'", nativeQuery = true)
+    @Query(value = "SELECT * FROM request_header WHERE app_by1 = 'ACCEPTED' AND app_by2 ='ACCEPTED' AND app_by3 = 'PENDING'", nativeQuery = true)
     Set<RequestHeader> listOfRequestHeaderForFinancialController();
 
-    @Query(value = "SELECT * FROM request_header WHERE app_status1 = 'ACCEPTED' AND app_status2 ='PENDING'", nativeQuery = true)
+    @Query(value = "SELECT * FROM request_header WHERE app_by1 = 'ACCEPTED' AND app_by2 ='PENDING'", nativeQuery = true)
     Set<RequestHeader> listOfRequestHeaderForPurchasingManager();
 
-    @Query(value = "SELECT * FROM request_header WHERE app_status1 = 'PENDING'", nativeQuery = true)
+    @Query(value = "SELECT * FROM request_header WHERE app_by1 = 'PENDING'", nativeQuery = true)
     Set<RequestHeader> listOfRequestHeaderForDepartmentHead();
 
     @Transactional
