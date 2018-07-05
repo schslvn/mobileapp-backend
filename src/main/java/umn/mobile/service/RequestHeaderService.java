@@ -25,35 +25,22 @@ public class RequestHeaderService {
         return LocalDate.now().format(formatter);
     }
 
-    public Integer getCounter(){
-        Integer i = requestHeaderRepo.getCounter();
-        if(i==null){
-            i=1;
-        }
-        else{
-            i++;
-        }
 
-        return i;
-    }
-
-    public String createNomorDokumen() {
+    public String createNomorDokumen(RequestHeader requestHeader) {
         return String.format(
-                "PR/%s/%04d",
+                "PR/%04d",
                 String.format("%02d%02d",
-                        LocalDate.now().getMonthValue(),
-                        LocalDate.now().getYear()%100),
-                getCounter()
+                        requestHeader.getRequest_header_id())
         );
     }
 
-    public String saveRequestHeader(RequestHeader requestHeader, List<RequestDetail> listOfRequestDetail) {
+    public String saveRequestHeader(RequestHeader requestHeader) {
         try {
             RequestHeader _requestHeader = requestHeaderRepo.save(requestHeader);
-            for (RequestDetail cod: listOfRequestDetail) {
-                cod.setRequest_header_id(_requestHeader.getRequest_header_id());
-            }
-            requestDetailRepo.save(listOfRequestDetail);
+//            for (RequestDetail cod: listOfRequestDetail) {
+//                cod.setRequest_header_id(_requestHeader.getRequest_header_id());
+//            }
+//            requestDetailRepo.save(listOfRequestDetail);
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -76,8 +63,8 @@ public class RequestHeaderService {
         requestHeaderRepo.delete(request_header_id);
     }
 
-    public Set<Request> getAllHeaderDetail(){
-        Set<Request> listOfHeaderDetail = requestHeaderRepo.listOfHeaderDetail();
+    public Set<RequestHeader> getAllHeaderDetail(){
+        Set<RequestHeader> listOfHeaderDetail = requestHeaderRepo.listOfHeaderDetail();
         return listOfHeaderDetail;
     }
 

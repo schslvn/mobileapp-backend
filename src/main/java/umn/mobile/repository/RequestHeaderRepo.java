@@ -11,9 +11,6 @@ import javax.transaction.Transactional;
 import java.util.Set;
 
 public interface RequestHeaderRepo extends JpaRepository<RequestHeader, Long> {
-    @Query(value = "SELECT counter FROM request_header WHERE request_date=current_date ORDER BY number DESC LIMIT 1", nativeQuery = true)
-    Integer getCounter();
-
     @Query(value = "SELECT * FROM request_header WHERE app_status1 = 'PENDING' OR app_status2 ='PENDING' OR app_status3 = 'PENDING' OR app_status4 = 'PENDING'", nativeQuery = true)
     Set<RequestHeader> listOfAllRequestHeaderByPendingStatus();
 
@@ -49,8 +46,8 @@ public interface RequestHeaderRepo extends JpaRepository<RequestHeader, Long> {
     @Query(value = "UPDATE RequestHeader rh SET rh.app_status4 = :app_status4 WHERE rh.request_header_id = :request_header_id")
     public void updateGeneralManager(@Param("app_status4") String app_status4, @Param("request_header_id") Long request_header_id);
 
-    @Query(value = "SELECT rh, rd FROM RequestHeader rh, RequestDetail rd WHERE rh.request_header_id = rd.request_header_id")
-    Set<Request> listOfHeaderDetail();
+    @Query(value = "SELECT ROW_TO_JSON(rh), ARRAY_TO_JSON(ARRAY(SELECT rd FROM request_detail rd, request_header rh WHERE rh.request_header_id=rd.request_header_id)) FROM request_header rh", nativeQuery = true)
+    Set<RequestHeader> listOfHeaderDetail();
 
     @Query(value = "SELECT rh FROM RequestHeader rh")
     Set<RequestHeader> listOfRequestHeader();

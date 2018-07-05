@@ -32,11 +32,11 @@ public class RequestHeaderController {
         return requestHeaderService.getAllRequestHeader();
     }
 
-//    //ShowAllRequestHeaderAndDetail
-//    @GetMapping(value = "", produces = {"application/json"})
-//    public ResponseEntity<Request> get(Request request){
-//
-//    }
+    //ShowAllRequestHeaderAndDetail
+    @GetMapping(value = "/all", produces = {"application/json"})
+    public Set<RequestHeader> getAllHeaderDetail(){
+        return new HashSet<>(requestHeaderService.getAllHeaderDetail());
+    }
 
     //ShowRequestHeaderById
     @GetMapping(value = "/{id}", produces = {"application/json"})
@@ -88,16 +88,14 @@ public class RequestHeaderController {
     //CreateNewRequestHeader
     @PostMapping(value = "",
             produces = {"application/json"})
-    public ResponseEntity<Request> createRequestHeader(@Valid @RequestBody Request request){
-        request.requestHeader.setRequest_date(requestHeaderService.createDate());
-        request.requestHeader.setCounter(requestHeaderService.getCounter());
-        request.requestHeader.setNumber(requestHeaderService.createNomorDokumen());
-        request.requestHeader.setApp_status1("PENDING");
-        request.requestHeader.setApp_status2("PENDING");
-        request.requestHeader.setApp_status3("PENDING");
-        request.requestHeader.setApp_status4("PENDING");
-        requestHeaderService.saveRequestHeader(request.requestHeader, request.listRequestDetail);
-        return new ResponseEntity<>(request, HttpStatus.CREATED);
+    public Long createRequestHeader(@Valid @RequestBody RequestHeader request){
+        request.setRequest_date(requestHeaderService.createDate());
+        request.setApp_status1("PENDING");
+        request.setApp_status2("PENDING");
+        request.setApp_status3("PENDING");
+        request.setApp_status4("PENDING");
+        requestHeaderService.saveRequestHeader(request);
+        return request.getRequest_header_id();
     }
 
     //UpdateForDeptHead
