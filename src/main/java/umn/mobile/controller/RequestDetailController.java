@@ -38,8 +38,7 @@ public class RequestDetailController {
     }
 
     //CreateNewRequestDetail
-    @RequestMapping(value = "/detail",
-            method = RequestMethod.POST,
+    @PostMapping(value = "/detail",
             produces = {"application/json"})
     public ResponseEntity<RequestDetail> createRequestDetail(@RequestBody RequestDetail requestDetail){
         requestDetailService.saveRequestDetail(requestDetail);
