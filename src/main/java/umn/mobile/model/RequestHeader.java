@@ -26,7 +26,7 @@ public class RequestHeader {
     private String requested_by;
 
     @Column(name = "request_date", updatable = false)
-    private Date request_date;
+    private String request_date;
 
     @Column(name = "number", updatable = false)
     private String number;

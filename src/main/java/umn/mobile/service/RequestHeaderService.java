@@ -2,6 +2,7 @@ package umn.mobile.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import umn.mobile.model.Request;
 import umn.mobile.model.RequestDetail;
 import umn.mobile.model.RequestHeader;
 import umn.mobile.repository.RequestDetailRepo;
@@ -75,8 +76,8 @@ public class RequestHeaderService {
         requestHeaderRepo.delete(request_header_id);
     }
 
-    public Set<RequestHeader> getAllHeaderDetail(){
-        Set<RequestHeader> listOfHeaderDetail = requestHeaderRepo.listOfHeaderDetail();
+    public Set<Request> getAllHeaderDetail(){
+        Set<Request> listOfHeaderDetail = requestHeaderRepo.listOfHeaderDetail();
         return listOfHeaderDetail;
     }
 

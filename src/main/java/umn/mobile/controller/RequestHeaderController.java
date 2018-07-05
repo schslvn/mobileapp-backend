@@ -10,10 +10,7 @@ import umn.mobile.service.RequestHeaderService;
 
 import javax.validation.Valid;
 import java.sql.Date;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @RequestMapping(path = "/api/requestheader")
@@ -34,6 +31,12 @@ public class RequestHeaderController {
     public List<RequestHeader> showAllRequestHeader() {
         return requestHeaderService.getAllRequestHeader();
     }
+
+//    //ShowAllRequestHeaderAndDetail
+//    @GetMapping(value = "", produces = {"application/json"})
+//    public ResponseEntity<Request> get(Request request){
+//
+//    }
 
     //ShowRequestHeaderById
     @GetMapping(value = "/{id}", produces = {"application/json"})
@@ -86,7 +89,7 @@ public class RequestHeaderController {
     @PostMapping(value = "",
             produces = {"application/json"})
     public ResponseEntity<Request> createRequestHeader(@Valid @RequestBody Request request){
-        request.requestHeader.setRequest_date(Date.valueOf(requestHeaderService.createDate()));
+        request.requestHeader.setRequest_date(requestHeaderService.createDate());
         request.requestHeader.setCounter(requestHeaderService.getCounter());
         request.requestHeader.setNumber(requestHeaderService.createNomorDokumen());
         request.requestHeader.setApp_status1("PENDING");
