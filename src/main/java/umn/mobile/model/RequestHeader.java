@@ -87,7 +87,4 @@ public class RequestHeader {
 
     @Column(name = "grand_total", nullable = false)
     private Integer grand_total;
-
-    @Transient
-    private Set<RequestDetail> details;
 }

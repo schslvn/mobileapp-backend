@@ -46,23 +46,20 @@ public class RequestHeaderService {
         );
     }
 
-    public String saveRequestHeader(RequestHeader requestHeader){
+    public String saveRequestHeader(RequestHeader requestHeader, List<RequestDetail> listOfRequestDetail) {
         try {
             RequestHeader _requestHeader = requestHeaderRepo.save(requestHeader);
-            System.out.println(requestHeader.getDetails());
-            Set<RequestDetail> details = new HashSet<>();
-            for (RequestDetail cod: requestHeader.getDetails()) {
+            for (RequestDetail cod: listOfRequestDetail) {
                 cod.setRequest_header_id(_requestHeader.getRequest_header_id());
-                details.add(cod);
             }
-            requestDetailRepo.save(details);
+            requestDetailRepo.save(listOfRequestDetail);
         }
         catch (Exception ex) {
             ex.printStackTrace();
             return "Save Failed!" + ex.getMessage();
         }
 
-        return "Save Successful!";
+        return "Save Success!";
     }
 
     public RequestHeader getRequestHeaderById(Long request_header_id){
@@ -108,7 +105,7 @@ public class RequestHeaderService {
         return listOfRequestHeaderDH;
     }
 
-    //Update
+    //UpdatePositions
     public void updateDepartmentHead(String app_status1, Long request_header_id){
         requestHeaderRepo.updateDepartmentHead(app_status1, request_header_id);
     }
@@ -123,13 +120,5 @@ public class RequestHeaderService {
 
     public void updateGeneralManager(String app_status4, Long request_header_id){
         requestHeaderRepo.updateGeneralManager(app_status4, request_header_id);
-    }
-
-    public Set<RequestHeader> getRequestHeaderAndDetail(){
-        Set<RequestHeader> header = requestHeaderRepo.listOfRequestHeader();
-        for(RequestHeader h:header){
-            h.setDetails(requestDetailRepo.listOfRequestDetail(h.getRequest_header_id()));
-        }
-        return header;
     }
 }

@@ -82,39 +82,20 @@ public class RequestHeaderController {
         return listOfRequestHeader;
     }
 
-    //ShowAllRequestHeaderAndRequestDetail
-    @GetMapping(value = "/all",
-            produces = {"application/json"})
-    public Set<RequestHeader> getAllHeaderDetail(){
-//        Set<RequestHeader> listOfHeaderDetail = requestHeaderService.getAllHeaderDetail();
-//        return listOfHeaderDetail;
-        Set<RequestHeader> listOfHeaderDetail = requestHeaderService.getRequestHeaderAndDetail();
-        return listOfHeaderDetail;
-    }
-
     //CreateNewRequestHeader
     @PostMapping(value = "",
             produces = {"application/json"})
-    public ResponseEntity<RequestHeader> createRequestHeader(@Valid @RequestBody RequestHeader requestHeader){
-        requestHeader.setRequest_date(Date.valueOf(requestHeaderService.createDate()));
-        requestHeader.setCounter(requestHeaderService.getCounter());
-        requestHeader.setNumber(requestHeaderService.createNomorDokumen());
-        requestHeader.setApp_status1("PENDING");
-        requestHeader.setApp_status2("PENDING");
-        requestHeader.setApp_status3("PENDING");
-        requestHeader.setApp_status4("PENDING");
-        requestHeaderService.saveRequestHeader(requestHeader);
-        return new ResponseEntity<>(requestHeader, HttpStatus.CREATED);
+    public ResponseEntity<Request> createRequestHeader(@Valid @RequestBody Request request){
+        request.requestHeader.setRequest_date(Date.valueOf(requestHeaderService.createDate()));
+        request.requestHeader.setCounter(requestHeaderService.getCounter());
+        request.requestHeader.setNumber(requestHeaderService.createNomorDokumen());
+        request.requestHeader.setApp_status1("PENDING");
+        request.requestHeader.setApp_status2("PENDING");
+        request.requestHeader.setApp_status3("PENDING");
+        request.requestHeader.setApp_status4("PENDING");
+        requestHeaderService.saveRequestHeader(request.requestHeader, request.listRequestDetail);
+        return new ResponseEntity<>(request, HttpStatus.CREATED);
     }
-
-//    //UpdateExistingRequestHeader
-//    @PutMapping(value = "/{id}", produces = {"application/json"})
-//    public ResponseEntity<Request> updateRequestHeader(@Valid @RequestBody Request request,
-//                                                       @PathVariable("id") Long request_header_id){
-//        request.requestHeader.setRequest_header_id(request_header_id);
-//        requestHeaderService.saveRequestHeader(request.requestHeader, request.listRequestDetail);
-//        return new ResponseEntity<>(request, HttpStatus.CREATED);
-//    }
 
     //UpdateForDeptHead
     @PutMapping(value = "/{id}/dh/{status}", produces = {"application/json"})
